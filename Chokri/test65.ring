@@ -9,7 +9,11 @@
 func main
 	? "Bienvenue dans le language Ring!"
 	while True
-		? "Entrer une expression:" give cExp
-		if left(lower(trim(cExp)),4) = :exit exit ok
-		? eval("return " + cExp)
+		? "Entrer une expression:" give cExp # input not enter
+		if lower(trim(cExp)) = :exit exit ok
+		try
+			? eval("return " + cExp)
+		catch
+			? cCatchError
+		done
 	end
